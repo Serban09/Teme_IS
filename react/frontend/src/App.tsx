@@ -1,31 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+// import Checkbox from '@mui/material/Checkbox';
+
+// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+// function App() {
+//   return (
+//     <div className="App">
+//        <Checkbox {...label}  /> 
+//     </div>
+//   );
+// }
+// export default App;
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Checkbox from '@mui/material/Checkbox';
-import { Component } from './Components/Component';
+import {router} from './Router/router'
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Checkbox {...label} />
-    </div>
-  );
+export const App = (): JSX.Element => {
+  return <RouterProvider router={router} />
 }
 
 export default App;

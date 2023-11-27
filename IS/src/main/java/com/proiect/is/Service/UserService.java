@@ -6,4 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UserService {
     User findFirstById(Integer id);
+
+    User findFirstByUsernameAndPassword(String Username, String Password);
 }

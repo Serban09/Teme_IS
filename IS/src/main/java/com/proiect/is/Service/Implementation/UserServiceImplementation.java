@@ -13,4 +13,10 @@ public class UserServiceImplementation implements UserService {
     public User findFirstById(Integer id ){
         return userRepository.findFirstById(id);
     }
+
+    @Override
+    public User findFirstByUsernameAndPassword(String Username, String Password) {
+        return userRepository.findFirstByUsernameAndPassword(Username, Password);
+    }
+
 }
