@@ -1,0 +1,7 @@
+Functionalitati Proiect Aplicatie de Socializare:
+	Pagina userului:   - Pagina va contine contul userului,  o poza cu acesta, o descriere si diferite detalii despre user.
+			   - Diferite postari ce vor contine detalii precum: data postarii, comentarii(cu optiunea de a vedea cine a comentat si de a da like)
+			   - Lista de prieteni: un chat unde se poate vorbi cu diferiti utilizatori prieteni 
+						posibilitatea de a face un grup, cu mai multi useri.
+	Pagina adminului - Posibilitate operatii CRUD 
+			 - Posibilitate vizualare toti userii, posibilitate aplicare restrictii toti userii

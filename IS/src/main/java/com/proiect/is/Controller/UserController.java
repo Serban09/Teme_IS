@@ -28,6 +28,13 @@ public class UserController {
         System.out.println(data);
     }
 
+    @PostMapping("/Register")
+    public ResponseEntity<String> Register(@RequestBody User u){
+        if (userServiceImplementation.save(u) != null)
+            return ResponseEntity.status(HttpStatus.OK).body("Succes");
+        else return ResponseEntity.status(HttpStatus.OK).body("Error");
+    }
+
     @GetMapping ("/Login")
     public ResponseEntity<String> login(@RequestParam String Username, @RequestParam String Password)
     {

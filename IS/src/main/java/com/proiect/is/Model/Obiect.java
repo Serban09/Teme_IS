@@ -17,4 +17,5 @@ public class Obiect {
     private Long id;
     private String culoare;
     private String dimensiune;
+
 }

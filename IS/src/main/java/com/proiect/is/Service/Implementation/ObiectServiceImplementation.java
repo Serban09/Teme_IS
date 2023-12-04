@@ -15,7 +15,6 @@ public class ObiectServiceImplementation implements ObiectService {
     public Obiect findFirstById(Long id){
         return obiectRepository.findFirstById(id);
     }
-
     @Override
     public void Insert(Obiect ob){
         obiectRepository.save(ob);

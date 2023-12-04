@@ -19,4 +19,9 @@ public class UserServiceImplementation implements UserService {
         return userRepository.findFirstByUsernameAndPassword(Username, Password);
     }
 
-}
+    @Override
+    public User save(User u){
+        return userRepository.save(u);
+    }
+
+    }

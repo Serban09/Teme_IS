@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ObiectRepository extends CrudRepository<Obiect,Long> {
     Obiect findFirstById(Long id);
-
-    Obiect save(Obiect entity);
 }
