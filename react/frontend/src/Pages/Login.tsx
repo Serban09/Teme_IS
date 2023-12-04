@@ -29,9 +29,7 @@ export const Login = (): JSX.Element => {
         catch(error){
             setText("EROARE")
         }
-        //navigate("/Home")
     }
-
 
     return <div style={parentDivStyle}>
         <div style={{ marginTop: 20 }}>
