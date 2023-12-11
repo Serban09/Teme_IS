@@ -1,5 +1,6 @@
-import { Button, TextField } from "@mui/material"
-import { loginButtonStyle, parentDivStyle } from "./Login.styles"
+import { Button, Checkbox, FormControlLabel, TextField } from "@mui/material"
+import {field, fieldpassword, loginButtonStyle, parentDivStyle,Rememberme,ForgotPassword,SignUp } from "../Pages/Styles"
+import Link from '@mui/material/Link';
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +11,7 @@ export const Login = (): JSX.Element => {
     const [password, setPassword] = React.useState<string>("");
     const [text, setText] = React.useState<string>("");
     const navigate = useNavigate();
-
+    
     const onChangeEmail = (event: any): void => {
         setEmail(event.target.value)
     }
@@ -32,13 +33,16 @@ export const Login = (): JSX.Element => {
     }
 
     return <div style={parentDivStyle}>
-        <div style={{ marginTop: 20 }}>
-            <TextField id="standard-basic" label="Standard" variant="standard" onChange={onChangeEmail} />
+        <div style={field}>
+            <TextField id="standard-basic" label="Username" variant="standard" onChange={onChangeEmail} />
         </div>
-        <div style={{ marginTop: 20 }}>
-            <TextField id="standard-basic" label="Standard" variant="standard" onChange={onChangePassword} />
+        <div style={fieldpassword}>
+            <TextField id="standard-basic" label="Password" variant="standard" onChange={onChangePassword} />
         </div>
         <Button style={loginButtonStyle} onClick={login} variant="contained">Login</Button>
+        <FormControlLabel style = {Rememberme} required control={<Checkbox />} label="Remember me" />
+        <Link style = {ForgotPassword} href="/Register">Forgot Password</Link>
+        <Link style = {SignUp} href="/Register">Dont't have an account? Sign Up</Link>
         <h1>{text}</h1>
     </div>
 }
