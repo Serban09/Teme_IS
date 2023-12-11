@@ -82,7 +82,6 @@ export const Register = (): JSX.Element => {
     }
     
     const sendEmail =async (e:any):Promise<void> =>  {
-        
         e.preventDefault();
         emailjs.send('service_k7z6edh','template_vm0x4fr',templateParams,'FtJaYkrG8fs_m5ndX')
         .then((response:any) => {

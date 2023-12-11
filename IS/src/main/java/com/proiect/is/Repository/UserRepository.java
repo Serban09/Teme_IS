@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<User,Integer> {
     User findFirstById(Integer id);
     User findFirstByUsernameAndPassword(String Username, String Password);
-//    User updateUserByUsername(User u);
+  //  User updateUserByUsername(User u);
 }

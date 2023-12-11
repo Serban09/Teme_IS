@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/User")
 public class UserController {
     private final UserServiceImplementation userServiceImplementation;
-    private final ProfileServiceImplementation profileServiceImplementation;
     @GetMapping("/GetData")
     public String getMessage() {
         return "Ana are mere";
@@ -25,8 +24,7 @@ public class UserController {
     @PostMapping("/Register")
     public ResponseEntity<String> Register(@RequestBody User u){
         if (userServiceImplementation.save(u) != null)
-        {   Profile f = new Profile(u);
-            profileServiceImplementation.save(f);
+        {
             return ResponseEntity.status(HttpStatus.OK).body("Succes");
         }
         else return ResponseEntity.status(HttpStatus.OK).body("Error");
