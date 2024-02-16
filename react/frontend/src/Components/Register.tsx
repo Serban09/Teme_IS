@@ -9,8 +9,8 @@ import emailjs from "@emailjs/browser";
 import { error } from "console";
 
 export const Register = (): JSX.Element => {
-    const [isDisabled, setIsDisabled] = useState(true);
-    const [isRegister, setIsDisabled2] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [isRegister, setIsDisabled2] = useState(false);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
     const [email, setEmail] = useState("");
@@ -29,12 +29,12 @@ export const Register = (): JSX.Element => {
         to_email : email,
     })
 
-    useEffect(()=>{
-        console.log(templateParams.verification_code)
-        console.log(verification)
-        if(templateParams.verification_code == verification){setIsDisabled2(false)}
-        else setIsDisabled2(true)
-    },[verification,templateParams.verification_code])
+    // useEffect(()=>{
+    //     console.log(templateParams.verification_code)
+    //     console.log(verification)
+    //     if(templateParams.verification_code == verification){setIsDisabled2(false)}
+    //     else setIsDisabled2(true)
+    // },[verification,templateParams.verification_code])
     useEffect ( () => {
         if (password !== confirmPassword) {
             setPasswordError(true)
@@ -66,10 +66,7 @@ export const Register = (): JSX.Element => {
     const handleConfirmPassword = (e: any) => {
         setConfirmPassword(e.target.value)
     }
-
-    
-
-    const register = async (event: any): Promise<void> => {
+       const register = async (event: any): Promise<void> => {
         try{
             const newPerson = {firstName: firstName, lastName: lastName, username: username, email: email, age: age,  password: password}
             axios.post("http://localhost:8080/User/Register", newPerson).then((response:any)=>{
@@ -113,8 +110,6 @@ export const Register = (): JSX.Element => {
         setEmail(event.target.value);
     }
 
-
-    
     const onAgeChanged = (event:any):void => {
         setAge(event.target.value)
     }
@@ -140,12 +135,12 @@ export const Register = (): JSX.Element => {
             <div style={defaultStyle}>
                 <TextField id = "age" onChange = {onAgeChanged} label="Age" variant="standard"  />
             </div>
-            
             <div style={defaultStyle}>
                 <TextField id = "password"
                 error={passwordError}
                 label="Password" 
-                variant="standard" 
+                variant="standard"
+                type="password" 
                 helperText={passwordError ? "Incorrect entry." : ""}
                 onChange={handlePassword}
                 />
@@ -154,7 +149,8 @@ export const Register = (): JSX.Element => {
                 <TextField id = "confirmpassword"
                 error={passwordError}
                 label="Confirm password" 
-                variant="standard" 
+                variant="standard"
+                type="password" 
                 helperText={passwordError ? "Incorrect entry." : ""}
                 onChange={handleConfirmPassword}
                 />

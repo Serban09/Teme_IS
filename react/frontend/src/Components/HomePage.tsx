@@ -11,7 +11,6 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export const HomePage = () : JSX.Element => {
     const navigate = useNavigate();
-
     const navigateToLogin = () => {
         navigate('/Login');
     }

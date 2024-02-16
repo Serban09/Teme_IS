@@ -1,15 +1,4 @@
 Functionalitati Proiect Aplicatie de Socializare:
-	Pagina userului:   - Pagina va contine contul userului,  o poza cu acesta, o descriere si diferite detalii despre user.
-			   - Diferite postari ce vor contine detalii precum: data postarii, comentarii(cu optiunea de a vedea cine a comentat si de a da like)
-			   - Lista de prieteni: un chat unde se poate vorbi cu diferiti utilizatori prieteni 
-						posibilitatea de a face un grup, cu mai multi useri.
-	Pagina adminului - Posibilitate operatii CRUD 
-			 - Posibilitate vizualare toti userii, posibilitate aplicare restrictii toti userii
-
-
-Legaturi tabele: 
-
-Pentru User: Legatura OnetoMany dintre user si post.
-	     Legatura OnetoMany dintre user si friend.
-	     Legatura ManytoMany dintre user si message.
-Pentru Post: Legatura OnetoMany dintre post si comment.
+	Pentru Register: Trimite cod unic pentru email si validarea acestuia pentru a se crea contul.
+	Pentru User: Vizualizare date profil,avatar profil,posibilitatea sa ti alegi poza de profil, Posibilitate vizualizare alti useri si adaugarea lor ca prieteni, posibilitate vizualizare prieteni,Upload Post,Update Post, Delete Post, Post are un text si o poza.Vizualizare toate postarile prietenelor
+	Pentru Admin: CRUD pe toate tabelele. 

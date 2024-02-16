@@ -7,13 +7,17 @@ import { useNavigate } from "react-router-dom";
 
 
 export const Login = (): JSX.Element => {
-    const [email, setEmail] = React.useState<string>("");
+    const [username, setUsername] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
     const [text, setText] = React.useState<string>("");
     const navigate = useNavigate();
     
-    const onChangeEmail = (event: any): void => {
-        setEmail(event.target.value)
+    const onChangeUsername = (event: any): void => {
+        setUsername(event.target.value)
+    }
+
+    const navigatetoProfilePage = () => {
+        navigate('/ProfilePage');
     }
 
     const onChangePassword = (event: any): void => {
@@ -22,22 +26,32 @@ export const Login = (): JSX.Element => {
 
     const login = async (event: any): Promise<void> => {
         try{
-            const {data, status} = await axios.get("http://localhost:8080/User/Login", {params:{Username:email, Password:password}})
+            const {data, status} = await axios.get("http://localhost:8080/User/Login", {params:{Username:username, Password:password}})
+            console.log(data)
+            if (status == 200)
+                {   const id = data['id'];
+                    localStorage.setItem('token',data['id']);
+                    localStorage.setItem('admin',data['admin']);
+                    console.log("ADMIN :")
+                    console.log(localStorage.getItem('admin'));
+                    navigatetoProfilePage();
+                }
             setText(JSON.stringify(data, null, 4));
             console.log(text)
-            console.log(status)
+            console.log("DATA:" + data)
+            console.log("Status:" + status)
         }
         catch(error){
             setText("EROARE")
         }
     }
-
+    
     return <div style={parentDivStyle}>
         <div style={field}>
-            <TextField id="standard-basic" label="Username" variant="standard" onChange={onChangeEmail} />
+            <TextField id="standard-basic" label="Username" variant="standard" onChange={onChangeUsername} />
         </div>
         <div style={fieldpassword}>
-            <TextField id="standard-basic" label="Password" variant="standard" onChange={onChangePassword} />
+            <TextField id="standard-basic" label="Password" variant="standard" type="password" onChange={onChangePassword} />
         </div>
         <Button style={loginButtonStyle} onClick={login} variant="contained">Login</Button>
         <FormControlLabel style = {Rememberme} required control={<Checkbox />} label="Remember me" />
